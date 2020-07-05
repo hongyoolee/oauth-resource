@@ -1,0 +1,18 @@
+server:
+  port: 8081
+security:
+  oauth2:
+    client:
+      client-id: testClientId # jwt 토큰 열고 유효성 검사할 아이디
+      client-secret: testSecret # jwt 토큰 열고 유효성 검사할 비번
+    resource:
+      jwk:
+        key-set-uri: http://localhost:8089/oauth/token_key # key-uri 이 사라지고 해당 url로 키 얻어와서 넣는 로직을 직접 구현해야함.
+      #token-info-uri: http://localhost:8089/oauth/check_token # jwt token이 아닐때 token 이 유효한지 auth server 에 확인시 사용 .
+      #user-info-uri: BUGFIX
+#      jwt:
+#        key-uri: http://localhost:8089/oauth/token_key  spring 2.x 로 오면서 사라짐.
+#    resource:
+#      token-info-uri: http://localhost:8089/oauth/check_token # 유효한 토큰인지 oauth_access_token 테이블서 검사 (jwt 구조 일시 필요 없음.)
+#    jwt:
+#      signKey: 123@#$
